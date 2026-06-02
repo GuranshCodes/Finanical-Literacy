@@ -48,7 +48,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <QueryClientProvider client={queryClientInstance}>
-          <Router>
+          <Router basename="/Finanical-Literacy">
             <ScrollToTop />
             <AuthenticatedApp />
           </Router>
