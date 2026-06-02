@@ -31,6 +31,43 @@ const EXPENSES = [
 
 const FILTERS = ['ALL', 'JOB', 'INVESTMENTS', 'ROI', 'HOUSING', 'RETIREMENT', 'EDUCATION', 'HEALTH', 'FOOD', 'TRANSPORT', 'PHONE', 'CREDIT', 'BANK', 'INTERNET', 'IPTV', 'TRAVEL'];
 
+const GROCERY_LIST = [
+  'Chicken Breast (3-4kg) - $40',
+  'Eggs 3 dozen - $14',
+  'Premium Greek Yogurt 4 tubs - $35',
+  'Protein Bars (12-15 bars) - $30',
+  'Protein Shakes (10-12 bottles / 1 tub powder) - $26',
+  'Bread (4 Loaves) - $12',
+  'Rice (9KG bag) - $20',
+  'Pasta (6 boxes) - $12',
+  'Large Tortillas (2 packs) - $12',
+  'Bagels (2 packs) - $15',
+  'Oats (1 large container) - $8',
+  'Maggi (2 big packs) - $8',
+  'Bananas (34) - $12',
+  'Apples (10) - $15',
+  'Oranges (8) - $12',
+  'Potatoes (2 large bags) - $14',
+  'Onions (1 bag) - $8',
+  'Lettuce (2-3 heads) - $8',
+  'Bell Peppers (3-4) - $12',
+  'Grapes (1 pack) - $9',
+  'Milk (3-4 large jugs) - $24',
+  'Cheese (Mozzarella + Cheddar) - $18',
+  'Butter (5 sticks) - $8',
+  'Peanut Butter (1 jar) - $6',
+  'Cooking Oil (1 bottle) - $8',
+  'Pasta Sauce (2 jars) - $8',
+  'Cereal (1-2 boxes) - $20',
+  'Coffee (1 big container) - $12',
+  'Spices (set) - $6',
+  'Chips (2-3 bags) - $12',
+  'Chocolate (5 bars) - $10',
+  'Popcorn (2 bags) - $8',
+  'Ice Cream (2 tubs) - $10',
+  'Frozen Meals (6) - $10',
+];
+
 export default function ExpenseBreakdown() {
   const [filter, setFilter] = useState('ALL');
 
@@ -78,6 +115,26 @@ export default function ExpenseBreakdown() {
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Grocery List */}
+      <div className="border-b-2 border-foreground px-6 py-8 bg-muted">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <p className="text-accent text-[11px] font-mono tracking-[0.3em] uppercase mb-2">Grocery List</p>
+            <h3 className="font-heading font-black text-3xl uppercase tracking-[-0.05em] leading-tight">Monthly Groceries</h3>
+          </div>
+          <div className="text-[10px] font-mono text-muted-foreground text-right">
+            Total budget: <span className="text-foreground">$475 / mo</span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {GROCERY_LIST.map(item => (
+            <div key={item} className="text-[11px] font-mono text-muted-foreground border border-foreground/10 rounded-md p-3">
+              • {item}
+            </div>
+          ))}
         </div>
       </div>
 
