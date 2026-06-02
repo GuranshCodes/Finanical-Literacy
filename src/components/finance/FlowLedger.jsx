@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const GROCERY_ITEMS = [
   'Chicken Breast (3-4kg) - $40',
@@ -52,8 +52,6 @@ const FLOWS = [
 ];
 
 export default function FlowLedger() {
-
-  // ✅ FIX THAT STOPS ALL TS ERRORS
   const [expandedId, setExpandedId] = useState(
     /** @type {number | null} */ (null)
   );
