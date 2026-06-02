@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import appLogo from '@/assets/icons/app-logo.svg';
 
 const TOP_METRICS = [
   { label: 'GROSS_INCOME', value: '$157,184', sub: 'per year', up: true },
