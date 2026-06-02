@@ -70,6 +70,7 @@ const GROCERY_LIST = [
 
 export default function ExpenseBreakdown() {
   const [filter, setFilter] = useState('ALL');
+  const [groceriesOpen, setGroceriesOpen] = useState(false);
 
   const filtered = filter === 'ALL'
     ? EXPENSES
@@ -151,35 +152,69 @@ export default function ExpenseBreakdown() {
         const isPositive = exp.monthly >= 0;
         const monthlySign = exp.monthly >= 0 ? '+' : '-';
         const yearlySign = exp.yearly >= 0 ? '+' : '-';
+        const isGroceries = exp.category === 'GROCERIES';
         return (
-          <motion.div
-            key={exp.item}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: i * 0.04 }}
-            className="grid grid-cols-1 md:grid-cols-12 gap-y-5 gap-x-5 px-6 py-6 border-b-2 border-foreground hover:bg-muted transition-colors items-center"
-          >
-            <div className="md:col-span-2">
-              <span className="text-[10px] font-mono px-2 py-1 border border-foreground">
-                {exp.category}
-              </span>
-            </div>
-            <div className="md:col-span-3 flex items-center gap-2">
-              {exp.logo ? (
-                <img src={exp.logo} alt="" className="w-4 h-4 object-contain shrink-0" />
-              ) : (
-                <div className="w-4 h-4 border border-muted-foreground/30 shrink-0" />
-              )}
-              <span className="text-sm font-mono font-bold leading-6">{exp.item}</span>
-            </div>
-            <div className={`md:col-span-2 text-sm font-mono text-right ${isPositive ? 'text-accent' : 'text-destructive'}`}>
-              {monthlySign}${Math.abs(exp.monthly).toLocaleString('en-US', { minimumFractionDigits: 2 })}
-            </div>
-            <div className={`md:col-span-2 text-sm font-mono font-bold text-right ${isPositive ? 'text-accent' : 'text-destructive'}`}>
-              {yearlySign}${Math.abs(exp.yearly).toLocaleString('en-US', { minimumFractionDigits: 2 })}
-            </div>
-            <div className="md:col-span-3 text-[11px] font-mono text-muted-foreground leading-7 mt-3 md:text-right md:justify-self-end">{exp.note}</div>
-          </motion.div>
+          <div key={exp.item} className="space-y-3">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: i * 0.04 }}
+              className={`grid grid-cols-1 md:grid-cols-12 gap-y-5 gap-x-5 px-6 py-6 border-b-2 border-foreground transition-colors items-center ${isGroceries ? 'cursor-pointer hover:bg-muted' : 'hover:bg-muted'}`}
+              onClick={isGroceries ? () => setGroceriesOpen(prev => !prev) : undefined}
+            >
+              <div className="md:col-span-2">
+                <span className="text-[10px] font-mono px-2 py-1 border border-foreground">
+                  {exp.category}
+                </span>
+              </div>
+              <div className="md:col-span-3 flex items-center gap-2">
+                {exp.logo ? (
+                  <img src={exp.logo} alt="" className="w-4 h-4 object-contain shrink-0" />
+                ) : (
+                  <div className="w-4 h-4 border border-muted-foreground/30 shrink-0" />
+                )}
+                <span className="text-sm font-mono font-bold leading-6">
+                  {exp.item}
+                </span>
+                {isGroceries && (
+                  <span className="text-[10px] font-mono text-muted-foreground">{groceriesOpen ? '▾' : '▸'}</span>
+                )}
+              </div>
+              <div className={`md:col-span-2 text-sm font-mono text-right ${isPositive ? 'text-accent' : 'text-destructive'}`}>
+                {monthlySign}${Math.abs(exp.monthly).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              </div>
+              <div className={`md:col-span-2 text-sm font-mono font-bold text-right ${isPositive ? 'text-accent' : 'text-destructive'}`}>
+                {yearlySign}${Math.abs(exp.yearly).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              </div>
+              <div className="md:col-span-3 text-[11px] font-mono text-muted-foreground leading-7 mt-3 md:text-right md:justify-self-end">{exp.note}</div>
+            </motion.div>
+
+            {isGroceries && groceriesOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                transition={{ duration: 0.25 }}
+                className="md:col-span-12 px-6 pb-6"
+              >
+                <div className="rounded-2xl border border-destructive/20 bg-destructive/5 p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-destructive/80">Grocery Breakdown</p>
+                      <p className="text-sm font-mono font-bold text-destructive">Monthly Food Expenses</p>
+                    </div>
+                    <span className="text-[10px] font-mono text-destructive">- $475.00 / mo</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {GROCERY_LIST.map(item => (
+                      <div key={item} className="text-[11px] font-mono text-destructive leading-6 border border-destructive/10 rounded-lg bg-destructive/10 px-3 py-2">
+                        - {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
         );
       })}
 
