@@ -89,11 +89,11 @@ export default function ExpenseBreakdown() {
 
   return (
     <section id="assets" className="border-t-2 border-foreground">
-      {/* Header */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-12 border-b-2 border-foreground">
         <div className="lg:col-span-8 p-6 md:p-12 border-b-2 lg:border-b-0 lg:border-r-2 border-foreground">
           <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">
-            SECTION 02 // SPEND
+            SECTION 02 
           </p>
           <h2 className="font-heading font-black text-4xl md:text-6xl uppercase tracking-[-0.05em] leading-[0.9]">
             EXPENSES
@@ -119,7 +119,7 @@ export default function ExpenseBreakdown() {
         </div>
       </div>
 
-      {/* Grocery List */}
+      {}
       <div className="border-b-2 border-foreground px-6 py-8 bg-muted">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -139,7 +139,7 @@ export default function ExpenseBreakdown() {
         </div>
       </div>
 
-      {/* Table Header */}
+      {}
       <div className="hidden md:grid grid-cols-12 border-b-2 border-foreground bg-foreground text-background px-6 py-3">
         <div className="col-span-2 text-[10px] font-mono tracking-wider">CATEGORY</div>
         <div className="col-span-3 text-[10px] font-mono tracking-wider">ITEM</div>
@@ -218,7 +218,7 @@ export default function ExpenseBreakdown() {
         );
       })}
 
-      {/* Total Row */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-12 px-6 py-5 bg-foreground text-background items-center gap-y-1">
         <div className="md:col-span-2 text-[10px] font-mono tracking-wider">TOTAL</div>
         <div className="md:col-span-3 text-sm font-mono font-black uppercase">Total Expenses</div>
@@ -227,7 +227,7 @@ export default function ExpenseBreakdown() {
         <div className="md:col-span-3 text-[11px] font-mono text-destructive text-right md:justify-self-end">Living costs</div>
       </div>
 
-      {/* Summary Row */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-5 px-6 py-5 items-start gap-y-4">
         <div className="md:col-span-1">
           <div className="text-[10px] font-mono text-muted-foreground">Gross Total Income</div>

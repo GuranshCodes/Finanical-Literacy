@@ -5,7 +5,7 @@ import {
   PieChart, Pie, Cell,
 } from 'recharts';
 
-// Real income breakdown from user data
+
 const INCOME_VS_EXPENSE = [
   { label: 'GROSS', value: 157184, color: 'hsl(136,100%,50%)' },
   { label: 'EXPENSES', value: 76497.33, color: 'hsl(0,0%,30%)' },
@@ -13,7 +13,7 @@ const INCOME_VS_EXPENSE = [
   { label: 'SAVINGS', value: 49896.64, color: 'hsl(136,100%,70%)' },
 ];
 
-// Real expense allocation from user data
+
 const EXPENSE_ALLOCATION = [
   { name: 'RRSP', value: 28284.48, color: 'hsl(136, 100%, 50%)' },
   { name: 'STUDENT LOAN', value: 16000.00, color: 'hsl(0, 0%, 20%)' },
@@ -47,7 +47,7 @@ export default function MetricsPanel() {
     <section id="metrics" className="border-t-2 border-foreground">
       <div className="p-6 md:p-12 border-b-2 border-foreground">
         <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">
-          SECTION 04 // PERFORMANCE
+          SECTION 04 
         </p>
         <h2 className="font-heading font-black text-4xl md:text-6xl uppercase tracking-[-0.05em] leading-[0.9]">
           DASH<br />STATS
@@ -55,7 +55,7 @@ export default function MetricsPanel() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Income Bar */}
+        {}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -86,7 +86,7 @@ export default function MetricsPanel() {
           </div>
         </motion.div>
 
-        {/* Expense Pie */}
+        {}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -134,7 +134,7 @@ export default function MetricsPanel() {
         </motion.div>
       </div>
 
-      {/* Quick Stats */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-4">
         {[
           { label: 'SAVINGS_RATE', value: `${savingsRate}%` },

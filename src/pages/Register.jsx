@@ -10,7 +10,7 @@ import AuthLayout from "@/components/AuthLayout";
 import ProviderIcon from "@/components/ProviderIcon";
 import { toast } from "@/components/ui/use-toast";
 
-const db = /** @type {any} */ (globalThis).__APP_DB__ || {
+const db =  (globalThis).__APP_DB__ || {
   auth: {
     isAuthenticated: async () => false,
     me: async () => null,

@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b-2 border-foreground bg-background/95 backdrop-blur-sm">
       <div className="flex items-center justify-between px-6 h-14">
-        {/* Left: logo + name */}
+        {}
         <div className="flex items-center gap-3">
           <div className="w-3 h-3 bg-accent" />
           <div>
@@ -27,7 +27,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Center: nav links */}
+        {}
         <div className="hidden md:flex items-center gap-0">
           {NAV_LINKS.map((link) => (
             <a
@@ -40,7 +40,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right: dark mode + status */}
+        {}
         <div className="flex items-center gap-3">
           <span className="text-accent text-[11px] font-mono hidden sm:block">
             NVIDIA 2026

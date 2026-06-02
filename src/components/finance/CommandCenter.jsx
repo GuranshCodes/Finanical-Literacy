@@ -14,7 +14,7 @@ const TOP_METRICS = [
 export default function CommandCenter() {
   return (
     <section id="home">
-      {/* Hero Header */}
+      {}
       <div className="border-b-2 border-foreground p-6 md:p-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +22,7 @@ export default function CommandCenter() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">
-            SECTION 01 // HOME
+            SECTION 01 
           </p>
           <h1 className="font-heading font-black text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] uppercase tracking-[-0.05em] leading-[0.88]">
             FINANCIAL<br />
@@ -34,7 +34,7 @@ export default function CommandCenter() {
         </motion.div>
       </div>
 
-      {/* Income + Tax Split */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-12 border-b-2 border-foreground">
         <div className="lg:col-span-6 p-6 md:p-10 border-b-2 lg:border-b-0 lg:border-r-2 border-foreground">
           <div className="flex items-center gap-3 mb-3">
@@ -56,7 +56,7 @@ export default function CommandCenter() {
             <ArrowUpRight className="text-accent" size={16} />
             <span className="text-accent text-xs font-mono">EMPLOYER: NVIDIA SOFTWARE ENGINEER</span>
           </div>
-          {/* Nvidia HQ image */}
+          {}
           <div className="mt-6 border-2 border-foreground overflow-hidden">
             <img
               src="https://www.nvidia.com/favicon.ico"
@@ -91,7 +91,7 @@ export default function CommandCenter() {
         </div>
       </div>
 
-      {/* 6 Key Metrics */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {TOP_METRICS.map((m, i) => (
           <motion.div

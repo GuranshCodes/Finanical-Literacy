@@ -93,7 +93,7 @@
   }
 }
 
-/* Custom scrollbar */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -104,7 +104,7 @@
   background: hsl(var(--muted-foreground));
 }
 
-/* Ticker animation */
+
 @keyframes ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -114,7 +114,7 @@
   animation: ticker-scroll 30s linear infinite;
 }
 
-/* Grid cell hover effect */
+
 .cell-pop {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -123,7 +123,7 @@
   box-shadow: 4px 4px 0px hsl(var(--foreground));
 }
 
-/* Invert hover for buttons */
+
 .btn-invert {
   transition: all 0.15s ease;
 }

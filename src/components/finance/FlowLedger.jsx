@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 
-// Company logo URLs (official favicons / brand marks)
+
 const LOGOS = {
   NVIDIA: 'https://www.nvidia.com/favicon.ico',
   APPLE: 'https://www.apple.com/favicon.ico',
@@ -45,7 +45,7 @@ export default function FlowLedger() {
         </h2>
       </div>
 
-      {/* Table Header */}
+      {}
       <div className="hidden md:grid grid-cols-12 border-b-2 border-foreground bg-foreground text-background px-6 py-3">
         <div className="col-span-3 text-[10px] font-mono tracking-wider">DESCRIPTION</div>
         <div className="col-span-2 text-[10px] font-mono tracking-wider">FLOW</div>

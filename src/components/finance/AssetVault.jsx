@@ -80,11 +80,11 @@ export default function AssetVault({ images }) {
 
   return (
     <section id="assets" className="border-t-2 border-foreground">
-      {/* Header */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-12 border-b-2 border-foreground">
         <div className="lg:col-span-8 p-6 md:p-12">
           <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">
-            SECTION_02 // ASSET REGISTRY
+            SECTION_02 
           </p>
           <h2 className="font-heading font-black text-4xl md:text-6xl uppercase tracking-[-0.05em] leading-[0.9]">
             THE ASSET<br />VAULT
@@ -110,7 +110,7 @@ export default function AssetVault({ images }) {
         </div>
       </div>
 
-      {/* Asset Grid */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filtered.map((asset, i) => (
@@ -125,7 +125,7 @@ export default function AssetVault({ images }) {
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              {/* Image */}
+              {}
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img
                   src={images[i % images.length]}
@@ -134,7 +134,7 @@ export default function AssetVault({ images }) {
                 />
                 <div className="absolute inset-0 bg-foreground/60 group-hover:bg-foreground/80 transition-colors" />
                 
-                {/* Overlay content */}
+                {}
                 <div className="absolute inset-0 p-6 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-[10px] font-mono text-background/60 tracking-wider">
@@ -158,7 +158,7 @@ export default function AssetVault({ images }) {
                 </div>
               </div>
 
-              {/* Stats drawer */}
+              {}
               <motion.div
                 initial={{ height: 0 }}
                 animate={{ height: hoveredIdx === i ? 'auto' : 0 }}

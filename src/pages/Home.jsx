@@ -6,7 +6,7 @@ import ExpenseBreakdown from '../components/finance/ExpenseBreakdown';
 import FlowLedger from '../components/finance/FlowLedger';
 import MetricsPanel from '../components/finance/MetricsPanel';
 import Footer from '../components/finance/Footer';
-// All data is real — no fake numbers
+
 
 export default function Home() {
   return (

@@ -8,7 +8,7 @@ import { LogIn, Mail, Lock, Loader2 } from "lucide-react";
 import AuthLayout from "@/components/AuthLayout";
 import ProviderIcon from "@/components/ProviderIcon";
 
-const db = /** @type {any} */ (globalThis).__APP_DB__ || {
+const db =  (globalThis).__APP_DB__ || {
   auth: {
     isAuthenticated: async () => false,
     me: async () => null,

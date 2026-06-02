@@ -9,7 +9,7 @@ const labelVariants = cva(
 )
 
 const Label = React.forwardRef(
-  /** @type {React.ForwardRefRenderFunction<HTMLLabelElement, any>} */
+  
   ({ className, ...props }, ref) => (
     <LabelPrimitive.Root ref={ref} className={cn(labelVariants(), className)} {...props} />
   )

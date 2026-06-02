@@ -58,7 +58,7 @@ export default function Footer() {
           © {new Date().getFullYear()} FINANCIAL LITERACY. ALL RIGHTS RESERVED.
         </p>
         <p className="text-[10px] font-mono text-accent">
-          SYS://FINANCIAL_LITERACY_V1
+          SYS:
         </p>
       </div>
     </footer>
