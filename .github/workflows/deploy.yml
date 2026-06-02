@@ -1,21 +1,31 @@
 name: Deploy to GitHub Pages
 
-on:
+'on':
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+  pages: write
+
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm install
+          node-version: '20'
+
+      - run: npm ci
       - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v5
+
+      - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
