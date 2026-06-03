@@ -75,7 +75,7 @@ export default function MetricsPanel() {
                   tick={{ fontSize: 10, fontFamily: 'JetBrains Mono', fill: 'hsl(0,0%,40%)' }}
                 />
                 <YAxis hide />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip/>} />
                 <Bar dataKey="value" radius={0}>
                   {INCOME_VS_EXPENSE.map((entry, idx) => (
                     <Cell key={idx} fill={entry.color} />
