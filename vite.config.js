@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { fileURLToPath, URL } from 'node:url' // Add this for modern path resolution
 import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
@@ -8,7 +8,8 @@ export default defineConfig({
   logLevel: 'error',
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
+      // Safely maps '@' to the 'src' directory without needing __dirname
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   plugins: [
