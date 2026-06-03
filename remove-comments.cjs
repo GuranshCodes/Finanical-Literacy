@@ -12,7 +12,7 @@ function walk(dir) {
     } else {
       const filePath = path.join(dir, name.name);
       const ext = path.extname(name.name).toLowerCase();
-      if (!exts.has(ext)) continue;
+      if (!exts.has(ext)) return;
       const input = fs.readFileSync(filePath, 'utf8');
       const output = strip(input, { preserveNewlines: true });
       if (output !== input) {
