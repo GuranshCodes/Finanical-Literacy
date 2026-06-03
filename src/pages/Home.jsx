@@ -6,6 +6,7 @@ import ExpenseBreakdown from '../components/finance/ExpenseBreakdown';
 import FlowLedger from '../components/finance/FlowLedger';
 import MetricsPanel from '../components/finance/MetricsPanel';
 import Footer from '../components/finance/Footer';
+import { motion } from 'framer-motion';
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <FlowLedger />
       <MetricsPanel />
       <Footer />
+
     </div>
   );
 }
