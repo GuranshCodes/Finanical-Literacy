@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 const PRINCIPLES = [
   {
     title: 'Budget with intent',
-    body: 'Know where every dollar goes—then design your plan to save, invest, and stay calm.',
+    body: 'Know where every dollar goes then design your plan to save, invest, and stay calm.',
   },
   {
     title: 'Learn the rules, then automate',
-    body: 'Taxes basics, interest, RRSP/RDSP ideas—understand first, then use systems.',
+    body: 'Taxes basics, interest, RRSP/RDSP ideas understand first, then use systems.',
   },
   {
     title: 'Invest for time + consistency',
@@ -34,8 +34,7 @@ export default function AboutSection() {
             ABOUT ME
           </h2>
           <p className="font-mono text-muted-foreground text-sm mt-6 max-w-2xl leading-relaxed">
-            I build Financial Literacy experiences—so you can learn budgeting, understand cashflow,
-            grasp taxes basics, and improve your savings strategy with repeatable steps.
+            I built this website to help people with their finances and to show others my age that life is about more than just paying for expensive things.
           </p>
           <p className="font-mono text-muted-foreground text-sm mt-3 max-w-2xl leading-relaxed">
             Name: <span className="text-foreground font-medium">GURANSH DHALIWAL</span>. Grade-8 level message:
