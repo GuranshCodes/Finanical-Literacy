@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 
-
 const LOGOS = {
   NVIDIA: 'https://www.nvidia.com/favicon.ico',
   APPLE: 'https://www.apple.com/favicon.ico',
@@ -59,17 +58,18 @@ const FLOWS = [
   { id: 7, desc: 'Health Insurance', logo: null, from: 'BANK', to: 'POLICY_ME', monthly: '-$150.00', yearly: '-$1,800.00', type: 'out', category: 'HEALTH', note: 'Policy Me' },
   { id: 8, desc: 'Groceries', logo: null, from: 'BANK', to: 'STORES', monthly: '-$425.00', yearly: '-$5,100.00', type: 'out', category: 'GROCERIES', note: 'Remitbee' },
   { id: 9, desc: 'Rogers 2 Gigabit Internet', logo: LOGOS.ROGERS, from: 'BANK', to: 'ROGERS', monthly: '-$95.00', yearly: '-$1,140.00', type: 'out', category: 'INTERNET', note: 'Rogers' },
-  { id: 9, desc: 'Presto Card (Bus)', logo: LOGOS.PRESTO, from: 'BANK', to: 'PRESTO', monthly: '-$50.00', yearly: '-$600.00', type: 'out', category: 'TRANSPORT', note: 'Rarely used' },
-  { id: 10, desc: 'iPhone 17', logo: LOGOS.APPLE, from: 'BANK', to: 'APPLE', monthly: '-$106.31', yearly: '-$1,275.77', type: 'out', category: 'PHONE', note: 'Total: $1,275.77' },
-  { id: 11, desc: 'Rogers 60GB Plan', logo: LOGOS.ROGERS, from: 'BANK', to: 'ROGERS', monthly: '-$60.00', yearly: '-$720.00', type: 'out', category: 'PHONE_PLAN', note: 'Rogers' },
-  { id: 12, desc: 'Buying The IPTV BOX', logo: null, from: 'BANK', to: 'GLOUMBIA', monthly: '-$225.99', yearly: '+$0.00', type: 'out', category: 'IPTV', note: 'One Time Payment' },
-  { id: 13, desc: 'IPTV BOX', logo: null, from: 'BANK', to: 'GLOUMBIA', monthly: '-$10.00', yearly: '-$120.00', type: 'out', category: 'IPTV', note: 'Gloumbia Video' },
-  { id: 14, desc: '3-Week Vegas Trip', logo: LOGOS.EXPEDIA, from: 'BANK', to: 'EXPEDIA', monthly: '-$53.09', yearly: '-$637.08', type: 'out', category: 'TRAVEL', note: 'Summer · 3 weeks' },
-  { id: 15, desc: 'Fast Food', logo: null, from: 'BANK', to: 'RESTAURANTS', monthly: '-$60.00', yearly: '-$720.00', type: 'out', category: 'FOOD', note: 'Restaurants Canada avg' },
+  { id: 10, desc: 'Presto Card (Bus)', logo: LOGOS.PRESTO, from: 'BANK', to: 'PRESTO', monthly: '-$50.00', yearly: '-$600.00', type: 'out', category: 'TRANSPORT', note: 'Rarely used' },
+  { id: 11, desc: 'iPhone 17', logo: LOGOS.APPLE, from: 'BANK', to: 'APPLE', monthly: '-$106.31', yearly: '-$1,275.77', type: 'out', category: 'PHONE', note: 'Total: $1,275.77' },
+  { id: 12, desc: 'Rogers 60GB Plan', logo: LOGOS.ROGERS, from: 'BANK', to: 'ROGERS', monthly: '-$60.00', yearly: '-$720.00', type: 'out', category: 'PHONE_PLAN', note: 'Rogers' },
+  { id: 13, desc: 'Buying The IPTV BOX', logo: null, from: 'BANK', to: 'GLOUMBIA', monthly: '-$225.99', yearly: '+$0.00', type: 'out', category: 'IPTV', note: 'One Time Payment' },
+  { id: 14, desc: 'IPTV BOX', logo: null, from: 'BANK', to: 'GLOUMBIA', monthly: '-$10.00', yearly: '-$120.00', type: 'out', category: 'IPTV', note: 'Gloumbia Video' },
+  { id: 15, desc: '3-Week Vegas Trip', logo: LOGOS.EXPEDIA, from: 'BANK', to: 'EXPEDIA', monthly: '-$53.09', yearly: '-$637.08', type: 'out', category: 'TRAVEL', note: 'Summer · 3 weeks' },
+  { id: 16, desc: 'Fast Food', logo: null, from: 'BANK', to: 'RESTAURANTS', monthly: '-$60.00', yearly: '-$720.00', type: 'out', category: 'FOOD', note: 'Restaurants Canada avg' },
 ];
 
 export default function FlowLedger() {
-  const [expandedId, setExpandedId] = useState(0);
+  // Initialized to null since no rows are open at first
+  const [expandedId, setExpandedId] = useState(null);
 
   return (
     <section id="flow" className="border-t-2 border-foreground">
@@ -82,7 +82,6 @@ export default function FlowLedger() {
         </h2>
       </div>
 
-      {}
       <div className="hidden md:grid grid-cols-12 border-b-2 border-foreground bg-foreground text-background px-6 py-3">
         <div className="col-span-3 text-[10px] font-mono tracking-wider">DESCRIPTION</div>
         <div className="col-span-2 text-[10px] font-mono tracking-wider">FLOW</div>
@@ -143,29 +142,27 @@ export default function FlowLedger() {
               >
                 <div className="px-6 py-5 bg-muted border-t border-foreground">
                   {tx.category === 'GROCERIES' ? (
-                    <>
-                      <div className="flex flex-col gap-3">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                          <div>
-                            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-destructive/80 mb-1">Grocery Breakdown</p>
-                            <p className="text-sm font-mono font-bold text-destructive">Groceries · BANK → STORES</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-[10px] font-mono text-muted-foreground">Monthly total</p>
-                            <p className="text-sm font-mono font-bold text-destructive">{tx.monthly}</p>
-                            <p className="text-[10px] font-mono text-muted-foreground">Yearly total</p>
-                            <p className="text-sm font-mono font-bold text-destructive">{tx.yearly}</p>
-                          </div>
+                    <div className="flex flex-col gap-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div>
+                          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-destructive/80 mb-1">Grocery Breakdown</p>
+                          <p className="text-sm font-mono font-bold text-destructive">Groceries · BANK → STORES</p>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {GROCERY_ITEMS.map(item => (
-                            <div key={item} className="rounded-xl border border-destructive/20 bg-destructive/5 px-3 py-2">
-                              <p className="text-[11px] font-mono text-destructive">- {item}</p>
-                            </div>
-                          ))}
+                        <div className="text-right">
+                          <p className="text-[10px] font-mono text-muted-foreground">Monthly total</p>
+                          <p className="text-sm font-mono font-bold text-destructive">{tx.monthly}</p>
+                          <p className="text-[10px] font-mono text-muted-foreground">Yearly total</p>
+                          <p className="text-sm font-mono font-bold text-destructive">{tx.yearly}</p>
                         </div>
                       </div>
-                    </>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {GROCERY_ITEMS.map(item => (
+                          <div key={item} className="rounded-xl border border-destructive/20 bg-destructive/5 px-3 py-2">
+                            <p className="text-[11px] font-mono text-destructive">- {item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   ) : (
                     <>
                       <p className="text-[10px] font-mono text-muted-foreground tracking-wider mb-1">NOTE</p>
