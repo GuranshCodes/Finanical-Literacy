@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'EXPENSES', href: '#assets' },
   { label: 'Salary Flow', href: '#flow' },
   { label: 'Stats', href: '#metrics' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '/Finanical-Literacy/about' },
 ];
 
 export default function Navbar() {

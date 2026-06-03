@@ -7,11 +7,11 @@ import Navbar from '@/components/finance/Navbar';
 const PRINCIPLES = [
   {
     title: 'Budget with intent',
-    body: 'Know where every dollar goes—then design your plan to save, invest, and breathe easy.',
+    body: 'Know where every dollar goes then design your plan to save, invest, and breathe easy.',
   },
   {
     title: 'Learn the rules, then automate',
-    body: 'Taxes, interest, RRSP/RDSP concepts—understand the basics and let systems do the work.',
+    body: 'Taxes, interest, RRSP/RDSP concepts. Understand the basics and let systems do the work.',
   },
   {
     title: 'Invest for knowledge + time',
@@ -32,14 +32,14 @@ function AboutSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">ABOUT</p>
+          <p className="text-accent text-[11px] font-mono tracking-[0.3em] mb-4">ABOUT ME</p>
           <h1 className="font-heading font-black text-4xl md:text-6xl uppercase tracking-[-0.05em] leading-[0.9]">
-            FINANCIAL<br />
-            LITERACY
+            GUANSH<br />
+            DHALIWAL
           </h1>
           <p className="font-mono text-muted-foreground text-sm mt-6 max-w-2xl leading-relaxed">
-            This site is built for practical money skills: budgeting, cashflow, taxes basics, saving strategy,
-            and learning paths you can actually follow.
+            I made this site to help people learn financial literacy in a simple way. I want to show you that
+            anything is possible if you keep learning and practicing, even when you start with zero.
           </p>
         </motion.div>
       </div>
