@@ -333,7 +333,8 @@ export default function FinancialDashboard() {
           <div
             className="grid md:grid-cols-12 px-6 py-4 cursor-pointer hover:bg-muted items-center"
 // @ts-ignore
-onClick={() => setExpandedId(expandedId === tx.id ? null : tx.id)}
+onClick={() => setExpandedId(prevId => (prevId === tx.id ? null : tx.id))}
+
           >
             <div className="md:col-span-3 flex items-center gap-2">
               {tx.logo ? (
