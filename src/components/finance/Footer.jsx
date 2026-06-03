@@ -28,7 +28,7 @@ export default function Footer() {
               { label: 'EXPENSE BREAKDOWN', href: '#assets' },
               { label: 'FLOW LEDGER', href: '#flow' },
               { label: 'METRICS', href: '#metrics' },
-              { label: 'ABOUT', href: '/about' },
+              { label: 'ABOUT', href: '#about' },
             ].map(item => (
               <a
                 key={item.label}
