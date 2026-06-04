@@ -37,8 +37,7 @@ export default function AboutSection() {
             I built this website to help people with their finances and to show others my age that life is about more than just paying for expensive things.
           </p>
           <p className="font-mono text-muted-foreground text-sm mt-3 max-w-2xl leading-relaxed">
-            Name: <span className="text-foreground font-medium">GURANSH DHALIWAL</span>. Grade-8 level message:
-            keep learning—anything is possible if you practice.
+            Name: <span className="text-foreground font-medium">GURANSH DHALIWAL</span>
           </p>
         </motion.div>
       </div>
