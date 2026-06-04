@@ -39,7 +39,7 @@ function AboutSection() {
           </h1>
           <p className="font-mono text-muted-foreground text-sm mt-6 max-w-2xl leading-relaxed">
             I made this site to help people learn financial literacy in a simple way. I want to show you that
-            anything is possible if you keep learning and practicing, even when you start with zero.
+            anything is possible if you keep learning and practicing, even when you start with zero!
           </p>
         </motion.div>
       </div>
