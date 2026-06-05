@@ -38,7 +38,7 @@ export default function AboutSection() {
           </p>
           <div className="flex items-center gap-4 mt-3">
             <img
-              src="/src/assets/icons/unnamed.png"
+              src="/src/assets/icons/profile.png"
               alt="Profile"
               className="w-14 h-14 rounded-full border-2 border-foreground object-cover bg-muted"
             />
