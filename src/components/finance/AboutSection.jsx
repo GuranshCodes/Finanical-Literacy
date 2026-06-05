@@ -36,9 +36,16 @@ export default function AboutSection() {
           <p className="font-mono text-muted-foreground text-sm mt-6 max-w-2xl leading-relaxed">
             I built this website to help people with their finances and to show others my age that life is about more than just paying for expensive things.
           </p>
-          <p className="font-mono text-muted-foreground text-sm mt-3 max-w-2xl leading-relaxed">
-            Name: <span className="text-foreground font-medium">GURANSH DHALIWAL</span>
-          </p>
+          <div className="flex items-center gap-4 mt-3">
+            <img
+              src="/src/assets/icons/unnamed.png"
+              alt="Profile"
+              className="w-14 h-14 rounded-full border-2 border-foreground object-cover bg-muted"
+            />
+            <p className="font-mono text-muted-foreground text-sm max-w-2xl leading-relaxed">
+              Name: <span className="text-foreground font-medium">GURANSH DHALIWAL</span>
+            </p>
+          </div>
         </motion.div>
       </div>
 
