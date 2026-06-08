@@ -71,7 +71,7 @@ function App() {
       <AuthProvider>
         <QueryClientProvider client={queryClientInstance}>
 
-          <Router basename="/Finanical-Literacy">
+          <Router basename="/">
             <ScrollToTop />
             <AuthenticatedApp />
           </Router>
