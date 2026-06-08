@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
-/* Tailwind directives are handled by PostCSS; ignore CSS unknown-at-rule diagnostics in editors */
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 @layer base {
   :root {
@@ -88,29 +84,33 @@
 
 @layer base {
   * {
-    border-width: 0;
+    @apply border-border outline-ring/50;
   }
 
   body {
-    font-family: var(--font-body);
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--background));
+    @apply bg-background text-foreground font-body;
   }
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: hsl(var(--background));
 }
+
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--muted-foreground));
 }
 
 @keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .ticker-animate {
@@ -120,6 +120,7 @@
 .cell-pop {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .cell-pop:hover {
   transform: translate(-2px, -2px);
   box-shadow: 4px 4px 0px hsl(var(--foreground));
@@ -128,6 +129,7 @@
 .btn-invert {
   transition: all 0.15s ease;
 }
+
 .btn-invert:hover {
   background: hsl(var(--foreground)) !important;
   color: hsl(var(--background)) !important;
@@ -137,4 +139,3 @@
   outline: 2px solid hsl(var(--accent));
   outline-offset: 2px;
 }
-
