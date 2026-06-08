@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
-/* Tailwind directives are handled by PostCSS; ignore CSS unknown-at-rule diagnostics in editors */
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 @layer base {
   :root {
@@ -88,13 +83,11 @@
 
 @layer base {
   * {
-    border-width: 0;
+    @apply border-border outline-ring/50;
   }
 
   body {
-    font-family: var(--font-body);
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--background));
+    @apply bg-background text-foreground font-body;
   }
 }
 
