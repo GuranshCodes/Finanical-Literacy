@@ -26,14 +26,16 @@ export const AuthProvider = ({ children }) => {
       
       
       
-      const appClient = createAxiosClient({
-        baseURL: `/api/apps/public`,
-        headers: {
-          'X-App-Id': appParams.appId
-        },
-        token: appParams.token, 
-        interceptResponses: true
-      });
+     const appClient = {
+  get: async (url) => {
+    const res = await fetch(url, {
+      headers: {
+        'X-App-Id': appParams.appId
+      }
+    });
+    return res.json();
+  }
+};
       
       try {
         const publicSettings = await appClient.get(`/prod/public-settings/by-id/${appParams.appId}`);
