@@ -8,33 +8,8 @@
   </head>
 
   <body>
-    <div id="root"></div>
+  <p>Hello World!</p>
 
-    <!-- Fake DB (safe fallback) -->
-    <script>
-      window.__APP_DB__ = window.__APP_DB__ || {
-        auth: {
-          isAuthenticated: async () => false,
-          me: async () => null,
-        },
-        entities: new Proxy({}, {
-          get: () => ({
-            filter: async () => [],
-            get: async () => null,
-            create: async () => ({}),
-            update: async () => ({}),
-            delete: async () => ({})
-          }),
-        }),
-        integrations: {
-          Core: {
-            UploadFile: async () => ({ file_url: '' }),
-          },
-        },
-      };
-    </script>
-
-    <!-- VITE ENTRY POINT -->
-    <script type="module" src="/src/main.jsx"></script>
+   
   </body>
 </html>
