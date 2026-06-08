@@ -328,7 +328,7 @@ export default function FinancialDashboard() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* Tables */}
       {filtered.map((tx) => (
         <div key={tx.id} className="border-b-2 border-foreground">
           <div

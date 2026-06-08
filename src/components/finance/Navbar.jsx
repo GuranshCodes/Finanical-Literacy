@@ -62,7 +62,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
+ {/* Table */}
       <AnimatePresence>
         {open && (
           <motion.div

@@ -158,7 +158,7 @@ export default function FlowLedger() {
             </div>
           </div>
 
-          {/* EXPANDED */}
+           {/* Table */}
           <AnimatePresence>
             {expandedId === tx.id && (
               <motion.div
