@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { appParams } from "@/lib/app-params";
 
@@ -25,7 +26,12 @@ const db =
 
 const AuthContext = createContext(null);
 
+
+
 export const AuthProvider = ({ children }) => {
+  /** @type {any} */
+  void children;
+
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);

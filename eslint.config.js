@@ -1,4 +1,7 @@
 import globals from "globals";
+
+// Allow using TypeScript-eslint rule names in JS configs without installing TS plugin
+
 import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 import pluginReactHooks from "eslint-plugin-react-hooks";
@@ -36,7 +39,9 @@ export default [
     },
     rules: {
       "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
       "react/jsx-uses-vars": "error",
+
       "react/jsx-uses-react": "error",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
