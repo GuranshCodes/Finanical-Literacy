@@ -257,6 +257,7 @@ export default function FinancialDashboard() {
   const [expandedId, setExpandedId] = useState(null);
   const [filter, setFilter] = useState('ALL');
 
+
   const filtered =
     filter === 'ALL'
       ? FLOWS
@@ -292,7 +293,7 @@ export default function FinancialDashboard() {
   const finalYearly = taxableYearly - taxesYearly;
 
   return (
-    <section className="border-t-2 border-foreground">
+    <section id="assets" className="border-t-2 border-foreground">
       {/* Header */}
       <div className="grid lg:grid-cols-12 border-b-2 border-foreground">
         <div className="lg:col-span-8 p-6 md:p-12 border-r-2 border-foreground">
