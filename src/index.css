@@ -92,7 +92,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    font-family: var(--font-body);
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
   }
 }
 
