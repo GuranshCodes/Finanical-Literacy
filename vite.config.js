@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   // IMPORTANT: must match your GitHub repo name exactly
-  base: '/Finanical-Literacy/',
+  base: '/',
 
   logLevel: 'error',
 

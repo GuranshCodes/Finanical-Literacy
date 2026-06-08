@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://guranshcodes.github.io/Finanical-Literacy",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+
     "preview": "vite preview",
     "lint": "npx eslint ."
   },
