@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <base href="./" />
-    <link rel="icon" type="image/svg+xml" href="./icons/app-logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/Finanical-Literacy/icons/app-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="./manifest.json" />
     <title>Financial Literacy</title>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- Fake DB (safe fallback) -->
     <script>
-      const db = globalThis.__APP_DB__ || {
+      window.__APP_DB__ = window.__APP_DB__ || {
         auth: {
           isAuthenticated: async () => false,
           me: async () => null,
@@ -22,7 +23,7 @@
             get: async () => null,
             create: async () => ({}),
             update: async () => ({}),
-            delete: async () => ({}),
+            delete: async () => ({})
           }),
         }),
         integrations: {
@@ -32,6 +33,8 @@
         },
       };
     </script>
-    <script type="module" src="./src/main.jsx"></script>
+
+    <!-- VITE ENTRY POINT -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
