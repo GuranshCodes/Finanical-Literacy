@@ -71,8 +71,7 @@ function App() {
       <AuthProvider>
         <QueryClientProvider client={queryClientInstance}>
 
-          {/* IMPORTANT: no basename for GitHub Pages build setup */}
-          <Router>
+          <Router basename="/Finanical-Literacy">
             <ScrollToTop />
             <AuthenticatedApp />
           </Router>

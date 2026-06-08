@@ -22,5 +22,11 @@
     "src/pages/**/*.jsx",
     "src/Layout.jsx"
   ],
+  {
+  "compilerOptions": {
+    "checkJs": false
+  }
+}
+
   "exclude": ["node_modules", "dist", "src/vite-plugins", "src/components/ui", "src/api", "src/lib"]
 }
