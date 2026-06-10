@@ -30,7 +30,8 @@ const EXPENSE_ALLOCATION = [
 
 // keep tooltip untyped to avoid TS inference noise in this repo
 // (this file is .jsx, so avoid TS-only annotations)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// keep tooltip untyped to avoid TS inference noise in this repo
+// (this file is .jsx)
 // @ts-ignore
 const CustomTooltip = (props) => {
   const { active, payload } = props;
@@ -191,7 +192,7 @@ export default function MetricsPanel() {
       </div>
 
       {/* Number-appear tiles (circular/pill redesign) */}
-      <div ref={visRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-0">
+      <div ref={visRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-0 px-2 md:px-0">
         {[
           { label: 'SAVINGS_RATE', value: `${savingsRate}%`, delayMs: 0, accent: true },
           { label: 'STUDENT_LOAN', value: '$80,000', delayMs: 90, accent: false },

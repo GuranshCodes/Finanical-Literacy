@@ -4,14 +4,28 @@ import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown, CreditCard, HandCoins } from 'lucide-react';
 
-const LOGOS = {
-  NVIDIA: 'https://www.nvidia.com/favicon.ico',
-  APPLE: 'https://www.apple.com/favicon.ico',
-  ROGERS: 'https://www.rogers.com/favicon.ico',
-  PRESTO: 'https://www.prestocard.ca/favicon.ico',
-  EXPEDIA: 'https://www.expedia.ca/favicon.ico',
-  CIBC: 'https://www.cibc.com/favicon.ico',
+
+/** @type {Record<string, { emoji: string; ring: string; glow: string; text: string }>} */
+
+const ICON_META = {
+  JOB: { emoji: '💼', ring: 'border-accent/30', glow: 'bg-accent/10', text: 'text-accent' },
+  INVESTMENTS: { emoji: '📈', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  ROI: { emoji: '🧮', ring: 'border-accent/20', glow: 'bg-accent/10', text: 'text-accent' },
+  RETIREMENT: { emoji: '🏦', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  EDUCATION: { emoji: '🎓', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  HOUSING: { emoji: '🏠', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  HEALTH: { emoji: '🩺', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  GROCERIES: { emoji: '🛒', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  INTERNET: { emoji: '📡', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  TRANSPORT: { emoji: '🚌', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  PHONE: { emoji: '📱', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  PHONE_PLAN: { emoji: '📶', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  IPTV: { emoji: '📺', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  TRAVEL: { emoji: '✈️', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
+  FOOD: { emoji: '🍔', ring: 'border-foreground/25', glow: 'bg-foreground/10', text: 'text-foreground' },
 };
+
+
 
 const GROCERY_ITEMS = [
   'Chicken Breast (3-4kg) - $40',
@@ -51,10 +65,13 @@ const GROCERY_ITEMS = [
 ];
 
 const FLOWS = [
+
   {
     id: 1,
     desc: 'Nvidia SWE Salary',
-    logo: LOGOS.NVIDIA,
+    // logo removed (emoji icons only)
+    logo: undefined,
+
     from: 'NVIDIA',
     to: 'BANK',
     monthly: 13098.66,
@@ -88,7 +105,9 @@ const FLOWS = [
   {
     id: 4,
     desc: 'RRSP Contribution',
-    logo: LOGOS.CIBC,
+
+
+
     from: 'BANK',
     to: 'RRSP',
     monthly: -2357.04,
@@ -144,7 +163,8 @@ const FLOWS = [
   {
     id: 9,
     desc: 'Rogers 2 Gigabit Internet',
-    logo: LOGOS.ROGERS,
+    // logo removed (emoji icons only)
+    logo: undefined,
     from: 'BANK',
     to: 'ROGERS',
     monthly: -95,
@@ -156,7 +176,7 @@ const FLOWS = [
   {
     id: 10,
     desc: 'Presto Card',
-    logo: LOGOS.PRESTO,
+    logo: undefined,
     from: 'BANK',
     to: 'PRESTO',
     monthly: -50,
@@ -168,7 +188,7 @@ const FLOWS = [
   {
     id: 11,
     desc: 'iPhone 17',
-    logo: LOGOS.APPLE,
+    logo: undefined,
     from: 'BANK',
     to: 'APPLE',
     monthly: -106.31,
@@ -180,7 +200,7 @@ const FLOWS = [
   {
     id: 12,
     desc: 'Rogers 60GB Plan',
-    logo: LOGOS.ROGERS,
+    logo: undefined,
     from: 'BANK',
     to: 'ROGERS',
     monthly: -60,
@@ -214,7 +234,7 @@ const FLOWS = [
   {
     id: 15,
     desc: '3-Week Vegas Trip',
-    logo: LOGOS.EXPEDIA,
+    logo: undefined,
     from: 'BANK',
     to: 'EXPEDIA',
     monthly: -53.09,
@@ -253,10 +273,9 @@ const FILTERS = [
   'TRAVEL',
 ];
 
-function money(n /* number */) {
+/** @param {number} n */
+function money(n) {
   return Number(n).toLocaleString('en-US', {
-
-
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
@@ -300,8 +319,10 @@ export default function ExpenseBreakdown() {
   const taxesMonthly = taxableMonthly * taxRate;
   const taxesYearly = taxableYearly * taxRate;
 
-  const finalMonthly = taxableMonthly - taxesMonthly;
-  const finalYearly = taxableYearly - taxesYearly;
+  // keep for parity with calculations (UI uses SUMMARY literal), but avoid lint unused warnings
+  const _finalMonthly = taxableMonthly - taxesMonthly;
+  const _finalYearly = taxableYearly - taxesYearly;
+
 
   // NOTE: you asked for exact values. Keep them literal (UI design work) while calculations exist above.
   const SUMMARY = {
@@ -423,11 +444,17 @@ export default function ExpenseBreakdown() {
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
-                            {tx.logo ? (
-                              <img src={tx.logo} className="w-5 h-5 rounded-full" alt="" />
-                            ) : (
-                              <div className="w-5 h-5 rounded-full border border-foreground/25" />
-                            )}
+                            <div className={`w-6 h-6 md:w-5 md:h-5 rounded-full border flex items-center justify-center ${
+                              ICON_META[tx.category]?.ring || 'border-foreground/25'
+                            } bg-background/20`} aria-hidden>
+                              <span
+                                className={`text-[14px] ${
+                                  ICON_META[tx.category]?.text || 'text-foreground'
+                                }`}
+                              >
+                                {(ICON_META[tx.category]?.emoji || '💠')}
+                              </span>
+                            </div>
                             <span className="font-mono font-bold text-sm md:text-base">
                               {tx.desc}
                             </span>
@@ -495,7 +522,7 @@ export default function ExpenseBreakdown() {
                           ) : (
                             <div className="flex items-start gap-3">
                               <div className="w-10 h-10 rounded-full border border-foreground/20 bg-background/20 flex items-center justify-center">
-                                💠
+                                {ICON_META[tx.category]?.emoji || '💠'}
                               </div>
                               <p className="font-mono text-sm text-muted-foreground">
                                 {tx.note}
@@ -520,7 +547,7 @@ export default function ExpenseBreakdown() {
             <div className="absolute left-1/2 top-1/2 w-[540px] h-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/5 blur-[1px]" />
           </div>
 
-          <div className="grid md:grid-cols-5 gap-4 items-stretch relative">
+          <div className="grid md:grid-cols-5 gap-4 items-stretch relative w-full">
             {summaryItems.map((item, idx) => {
               const ringTone = item.accent ? 'border-accent/30 bg-accent/10' : 'border-foreground/20 bg-foreground/10';
               return (
