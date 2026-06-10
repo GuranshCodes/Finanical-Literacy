@@ -46,7 +46,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setDark(!dark)}
-            className="w-8 h-8 flex items-center justify-center rounded-md border border-foreground/40 hover:bg-foreground hover:text-background transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full border border-foreground/40 hover:bg-foreground hover:text-background transition-colors"
             aria-label="Toggle dark mode"
           >
             {dark ? <Sun size={14} /> : <Moon size={14} />}
