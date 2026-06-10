@@ -10,16 +10,22 @@ import Footer from '../components/finance/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
+    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground watershed-page">
       <Navbar />
       <MetadataTicker />
-      <CommandCenter />
-      <AboutSection />
-      <ExpenseBreakdown />
-      <FlowLedger />
-      <MetricsPanel />
+
+      <main className="watershed-main">
+        <CommandCenter />
+        <AboutSection />
+        <ExpenseBreakdown />
+        <FlowLedger />
+        <MetricsPanel />
+      </main>
+
+
       <Footer />
     </div>
   );
 }
+
 

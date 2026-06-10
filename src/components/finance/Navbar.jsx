@@ -16,11 +16,10 @@ export default function Navbar() {
   const { dark, setDark } = useTheme();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b-2 border-foreground bg-background/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/30 bg-background/60 backdrop-blur-md">
       <div className="flex items-center justify-between px-6 h-14">
-        {}
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 bg-accent" />
+          <div className="w-2.5 h-2.5 bg-accent rounded-full" />
           <div>
             <span className="font-heading font-black text-sm uppercase tracking-[-0.05em]">
               FINANCIAL LITERACY
@@ -28,31 +27,31 @@ export default function Navbar() {
           </div>
         </div>
 
-        {}
         <div className="hidden md:flex items-center gap-0">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground hover:bg-muted border-l-2 border-foreground transition-colors focus-visible:outline-2 focus-visible:outline-accent"
+              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors watershed-link-underline"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        {}
         <div className="flex items-center gap-3">
           <span className="text-accent text-[11px] font-mono hidden sm:block">
             NVIDIA 2026
           </span>
+
           <button
             onClick={() => setDark(!dark)}
-            className="w-8 h-8 flex items-center justify-center border-2 border-foreground hover:bg-foreground hover:text-background transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-md border border-foreground/40 hover:bg-foreground hover:text-background transition-colors"
             aria-label="Toggle dark mode"
           >
             {dark ? <Sun size={14} /> : <Moon size={14} />}
           </button>
+
           <button
             className="md:hidden p-1"
             onClick={() => setOpen(!open)}
@@ -62,21 +61,21 @@ export default function Navbar() {
           </button>
         </div>
       </div>
- {/* Table */}
+
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
-            className="md:hidden overflow-hidden border-t-2 border-foreground"
+            className="md:hidden overflow-hidden border-t border-foreground/30"
           >
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block px-6 py-3 text-xs font-mono uppercase tracking-wider border-b border-muted hover:bg-muted transition-colors"
+                className="block px-6 py-3 text-xs font-mono uppercase tracking-wider border-b border-foreground/20 hover:bg-muted/40 transition-colors"
               >
                 {link.label}
               </a>

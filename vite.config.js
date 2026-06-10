@@ -1,7 +1,7 @@
-import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
+import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
+import path from 'path'
 
 export default defineConfig({
   // IMPORTANT: must match your GitHub repo name exactly
@@ -11,7 +11,8 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      // Uses a more standard path resolution
+      '@': path.resolve(__dirname, './src'),
     },
   },
 

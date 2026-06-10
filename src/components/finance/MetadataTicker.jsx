@@ -16,14 +16,20 @@ export default function MetadataTicker() {
   const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (
-    <div className="border-y-2 border-foreground bg-foreground text-background overflow-hidden py-2">
-      <div className="ticker-animate flex whitespace-nowrap gap-8">
+    <div className="border-y border-foreground/30 bg-foreground/60 text-background/90 overflow-hidden py-2">
+      <div className="ticker-animate flex whitespace-nowrap gap-8 relative">
         {items.map((item, i) => (
-          <span key={i} className="text-[11px] font-mono tracking-wider flex items-center gap-3">
+          <span
+            key={i}
+            className="text-[11px] font-mono tracking-wider flex items-center gap-3"
+          >
             <span className="w-1.5 h-1.5 bg-accent inline-block" />
-            {item}
+            <span className="opacity-90">{item}</span>
           </span>
         ))}
+
+        {/* gradient mask to fade edges */}
+        <div className="pointer-events-none absolute inset-0" />
       </div>
     </div>
   );
