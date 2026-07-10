@@ -24,7 +24,7 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&height=3&color=gradient"/>
 
 <h2>About</h2>
-<p>Financial Literacy Calculations is an interactive web application developed for the <b>ClassResources</b> platform. It bridges the gap between theory and practice by allowing students to perform real-time financial calculations, making abstract concepts like budgeting and money management tangible and visual.</p>
+<p>Financial Literacy Calculations is an interactive web application developed for the <b>ClassResources</b> platform. It bridges the gap between theory and practice by allowing students to perform real time financial calculations, making abstract concepts like budgeting and money management tangible and visual.</p>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&height=3&color=gradient"/>
 
